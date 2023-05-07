@@ -1,30 +1,24 @@
-import { StyleSheet, View, Text, Image, Button } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, View, Text, Image, Button, ActivityIndicator } from "react-native";
+import UserLocation from "./UserLocation";
 
-
-function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = deg2rad(lon2-lon1); 
-  var a = 
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-    Math.sin(dLon/2) * Math.sin(dLon/2)
-    ; 
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-  var d = R * c; // Distance in km
-  return d;
-}
 
 const Item = (props) => {
-  const { name,address,phone1,latitude,longtiude } = props
+  const { item } = props
+
+
+
+
   return (
 
-      <View style={styles.item}>
-        <Image source={require("../../assets/pharmacy-logo.png")} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{name}</Text>
-          <Text style={styles.address}>{address}</Text>
-          <Text style={styles.phone}>{phone1}</Text>
+    <View style={styles.item}>
+      <Image source={require("../../assets/pharmacy-logo.png")} style={styles.image} />
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>Pharmacie : {item.name}</Text>
+        <Text style={styles.address}>{item.address}</Text>
+        <Text style={styles.phone}>{item.phone1}</Text>
+
+
       </View>
     </View>
   );
@@ -38,7 +32,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     backgroundColor: "#fefefe",
-  
+
     borderBottomColor: "green",
     borderBottomWidth: 3
     // borderRadius: 26,
@@ -46,7 +40,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    
+
     justifyContent: 'center',
     marginStart: 20
   },

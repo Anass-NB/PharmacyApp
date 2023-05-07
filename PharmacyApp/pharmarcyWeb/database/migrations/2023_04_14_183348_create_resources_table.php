@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pharmacies', function (Blueprint $table) {
+        Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->string("name");
             $table->float("latitude");
             $table->float("longtiude");
-            $table->tinyInteger("permanent");
+            $table->tinyInteger("permanent")->default(0);
             $table->text("description");
             $table->string("address");
             $table->string("phone1");
             $table->string("phone2");
             $table->string("website");
-            $table->tinyInteger("active"); // 1 = active , 0 = Inactive
+            $table->tinyInteger("active")->default(1); // 1 = active , 0 = Inactive
             $table->timestamps();
         });
     }

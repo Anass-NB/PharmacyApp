@@ -6,6 +6,7 @@ import PharmacyMap from './src/Components/PharmacyMap';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PharmarcyList from './src/Screens/PharmacyList';
 import * as Location from 'expo-location';
+import Tabs from './src/Components/Tabs';
 
 
 
@@ -18,7 +19,6 @@ export default function App() {
   if (loading) {
     return (
       <View style={styles.container}>
-
         <ActivityIndicator size={"large"} color={"#03C988"} />
       </View>
     )
@@ -42,28 +42,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          options={
-            {
-              title: "La Liste des pharmacies",
-              headerTintColor: '#fff',
-              headerTitleStyle: { fontWeight: 'bold', },
-              headerStyle: { backgroundColor: '#03C988', }
-            }
-          }
-          name="Home" component={PharmarcyList} />
-        <Stack.Screen
-         options={
-          {
-            title: " pharmacie en Map",
-            headerTintColor: '#fff',
-            headerTitleStyle: { fontWeight: 'bold', },
-            headerStyle: { backgroundColor: '#03C988', }
-          }
-        }
-         name="Map" component={PharmacyMap} />
-      </Stack.Navigator>
+      <Tabs />
     </NavigationContainer>
 
 
