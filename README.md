@@ -13,7 +13,7 @@
 ## Installation
 
 ```sh
-git clone install my-crazy-module --save
+https://github.com/Anass-NB/PharmacyApp.git
 cd PharmacyApp
 ```
 
