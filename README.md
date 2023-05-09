@@ -2,7 +2,7 @@
 >This is a mobile application designed to help users find the nearest pharmacies to their current location. The app uses the user's device location to fetch a list of pharmacies within a certain radius and sorts them by distance. The user can then view the details of each pharmacy, such as name, address, and phone number.
 >The app also allows users to report whether a pharmacy is open or closed, providing other users with up-to-date information on the availability of the pharmacy. Users can also search for specific pharmacies by name, making it easier to find the one they need.
 
-Overall, this app aims to help users quickly and easily locate nearby pharmacies and make informed decisions about where to go for their healthcare needs.
+>Overall, this app aims to help users quickly and easily locate nearby pharmacies and make informed decisions about where to go for their healthcare needs.
 
 <img src='https://user-images.githubusercontent.com/110456240/234850504-8f6461c8-25a1-4948-b851-ac77e50b1270.jpeg' height="30%" width="30%" />
 
