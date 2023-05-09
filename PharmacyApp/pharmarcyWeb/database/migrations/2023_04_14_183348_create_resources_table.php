@@ -14,14 +14,17 @@ return new class extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->float("latitude");
-            $table->float("longtiude");
-            $table->tinyInteger("permanent")->default(0);
-            $table->text("description");
+            $table->string("ville");
             $table->string("address");
-            $table->string("phone1");
-            $table->string("phone2");
-            $table->string("website");
+            $table->text("description");
+            $table->string("latitude")->nullable();;
+            $table->string("longitude")->nullable();;
+            $table->tinyInteger("permanent")->default(0);
+            $table->string("phone1")->nullable();
+            $table->string("phone2")->nullable();
+            $table->string("website")->nullable();
+            $table->string("google_maps")->nullable();
+            $table->string("reference")->nullable();
             $table->tinyInteger("active")->default(1); // 1 = active , 0 = Inactive
             $table->timestamps();
         });

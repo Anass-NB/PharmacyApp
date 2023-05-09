@@ -16,6 +16,7 @@ const Item = (props) => {
       <View style={styles.textContainer}>
         <Text style={styles.title}>Pharmacie : {item.name}</Text>
         <Text style={styles.address}>{item.address}</Text>
+        <Text style={styles.address}>City : {item.ville}</Text>
         <Text style={styles.phone}>{item.phone1}</Text>
 
 

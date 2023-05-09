@@ -1,8 +1,13 @@
 import { ActivityIndicator, Button, Linking, StyleSheet } from "react-native";
-import { Text, View  } from "react-native";
+import { Text, View } from "react-native";
 import MapView from "react-native-maps";
 import { Marker } from 'react-native-maps';
 import UserLocation from "./UserLocation";
+import { useState } from "react";
+import ReportPharmacy from "./ReportPharmacy";
+import { EvilIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+
 
 
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
@@ -21,15 +26,28 @@ const toRadians = (degrees) => {
   return degrees * Math.PI / 180;
 };
 
+
+
+
+
+
+
+
+
 const PharmacyMap = ({ route, navigation }) => {
-  const { name, description, latitude, longtiude, phone1, website } = route.params;
+  const { name, description, latitude, longitude, phone1, address, id, ville } = route.params;
   const pharmacyRegion = {
-    latitude: latitude,
-    longitude: longtiude,
-    latitudeDelta: 0.922,
-    longitudeDelta: 0.421,
+    latitude: parseFloat(latitude),
+    longitude: parseFloat(longitude),
+    latitudeDelta: 0.04,
+    longitudeDelta: 0.05,
   };
   const userLoc = UserLocation()
+  const [loading, setLoading] = useState(false);
+
+  const handleSaveIpAddress = async () => {
+    await saveIpAddress();
+  };
 
   return (
     <View style={styles.container}>
@@ -48,26 +66,25 @@ const PharmacyMap = ({ route, navigation }) => {
       </MapView>
 
       <View style={{ margin: 10 }}>
-        <Text style={styles.pharmacyName}> {name}</Text>
- 
-        
-        <Text style={styles.pharmacyWebsite}onPress={() => {
-          Linking.openURL(website);
-        }}><Text style={styles.mainTitle}>Website </Text>: {website}</Text>
-               <Text style={styles.pharmacyDescription}><Text style={styles.mainTitle}>Description</Text>: {description}</Text>
+        <Text style={styles.pharmacyName}> {name} <Text style={styles.city} >{ville}</Text></Text>
+
+        <Text style={styles.pharmacyWebsite}>
+          <Text style={styles.mainTitle}><EvilIcons name="location" size={20} color="black" />Address </Text>: {address}
+        </Text>
+        <Text style={styles.pharmacyDescription}><Text style={styles.mainTitle}>
+          Description</Text>: {description}</Text>
         <Text>
-          {userLoc ?"Distance : " +  calculateDistance(userLoc.latitude,userLoc.longitude,latitude,longtiude) + " KM"  : <ActivityIndicator size="small" color="#03C988" />
-}
+          {userLoc ? "Distance : " + calculateDistance(userLoc.latitude, userLoc.longitude, latitude, longitude) + " KM" : <ActivityIndicator size="small" color="#03C988" />
+          }
         </Text>
         <View style={styles.buttonSection}>
-          <Button
-            title="déclarer cette pharmacie en permanence"
-            color="#03C988"
-            accessibilityLabel="Learn more about this purple button"
-          />
-          <Button title="Call" color="black" onPress={() => {
-            Linking.openURL(`tel:${phone1}`)
-          }} />
+          <ReportPharmacy id={id} />
+          <View style={styles.callBtn}>
+            <Feather name="phone-call" size={19} color="white" style={styles.iconCall} />
+            <Button title="Call" color={"red"}  onPress={() => {
+              Linking.openURL(`tel:${phone1}`)
+            }} />
+          </View>
         </View>
       </View>
 
@@ -87,13 +104,23 @@ const styles = StyleSheet.create({
     width: "100%",
 
   },
+  callBtn:{
+    flex:1,
+    backgroundColor:"red",
+    flexDirection:"row",
+    alignItems:"center",
+    borderRadius:4
+  },
+  iconCall:{
+    padding:2,
+  },
   buttonSection: {
     marginVertical: 10,
     flexDirection: "row",
     justifyContent: "space-between"
   },
-  pharmacyDescription:{
-  
+  pharmacyDescription: {
+
   }
   , pharmacyName: {
     fontSize: 22,
@@ -107,7 +134,11 @@ const styles = StyleSheet.create({
     color: "#03C988"
   },
   pharmacyWebsite: {
-    color:"blue"
+    color: "blue"
+  },
+  city: {
+    color: "#03C988",
+    fontSize: 15
   }
 
 })
