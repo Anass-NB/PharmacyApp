@@ -15,14 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/login2', 'auth.login2');
+Route::group(["middleware"=>"auth"],function(){
+  Route::get('/', function () {
+    return redirect()->route("pharmacies.index");
 });
-Route::view("/create-pharmacy","pages.pharmacies.add")->name("pharmacies.add");
-Route::get("/pharmacies",[PharmacyController::class,"index"])->name("pharmacies.index");
-// Route::get("/create/pharmacy",[PharmacyController::class,"create"])->name("pharmacies.add");
-Route::post("/pharmacies/delete",[PharmacyController::class,"destroy"])->name("pharmacie.delete");
-Route::post("/pharmacies/store",[PharmacyController::class,"store"])->name("pharmacie.store");
+  Route::view("/create-pharmacy","pages.pharmacies.add")->name("pharmacies.add");
+  Route::get("/pharmacies",[PharmacyController::class,"index"])->name("pharmacies.index");
+  // Route::get("/create/pharmacy",[PharmacyController::class,"create"])->name("pharmacies.add");
+  Route::post("/pharmacies/delete",[PharmacyController::class,"destroy"])->name("pharmacie.delete");
+  Route::post("/pharmacies/store",[PharmacyController::class,"store"])->name("pharmacie.store");
+  Route::post("/pharmacy/update",[PharmacyController::class,"update"])->name("pharmacy.edit");
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

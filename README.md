@@ -1,4 +1,4 @@
-# PharmacyApp
+# PharmacyFinder
 >This is a mobile application designed to help users find the nearest pharmacies to their current location. The app uses the user's device location to fetch a list of pharmacies within a certain radius and sorts them by distance. The user can then view the details of each pharmacy, such as name, address, and phone number.
 >The app also allows users to report whether a pharmacy is open or closed, providing other users with up-to-date information on the availability of the pharmacy. Users can also search for specific pharmacies by name, making it easier to find the one they need.
 
@@ -58,19 +58,14 @@ cd PharmacyApp
 ## Mobile Application
 
 1. change your directory to the mobile directory `cd pharmacyMobile`
+1. set the ip address of your machine if you are working with local server 
+    ```sh
+     .env
+    ```
+    in .env file set the ip address of your server(in your case set ip address of your machine)
 2. Run `npm install` in the folder, this will install all npm required packages.
 3. To Run the app `npm run start`
 
 
 
 
-# Error on fetching Data
-Maybe you have a problem when you fetching data from the api , using Postman, the fetch is working good but  there is no data  in mobile application
-the problem is is about a conflict between an emulator localhost and server localhost. Your back-end-server might be ruunning on 127.0.0.1:8000, but an emulator can't find this.
--- Solution
-In terminal find your Ipv4-Address with a command 'ipconfig'. For ex., it will be 192.138.1.40
-
-After this put it into your fetch ( 'http://192.138.1.40:8000/'). you ip address
-![image](https://user-images.githubusercontent.com/110456240/234855202-19c5f8d0-b638-4e9d-b8bf-f2036de8951c.png)
-
-And what is also important - run your back-end-server with the same host and port.

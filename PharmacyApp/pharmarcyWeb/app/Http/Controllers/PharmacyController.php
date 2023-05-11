@@ -33,6 +33,7 @@ class PharmacyController extends Controller
         // return $request;
         $request->validate([
           "name" =>"required",
+          "city" =>"required",
           "description" =>"required",
           "address" =>"required",
           "phone1" =>"required",
@@ -42,12 +43,13 @@ class PharmacyController extends Controller
         ]);
         $pharmacy = new Pharmacy();
         $pharmacy->name = $request->name;
+        $pharmacy->ville = $request->city;
         $pharmacy->description = $request->description;
         $pharmacy->address = $request->address;
         $pharmacy->phone1 = $request->phone1;
         $pharmacy->phone2 = $request->phone2;
         $pharmacy->website = $request->website;
-        $pharmacy->longtiude = $request->longitude;
+        $pharmacy->longitude = $request->longitude;
         $pharmacy->latitude = $request->latitude;
         $pharmacy->save();
         notify()->success('Pharmacy added Successfully !');
@@ -75,9 +77,19 @@ class PharmacyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pharmacy $pharmacy)
+    public function update(Request $request)
     {
-        //
+      $pharmacy = Pharmacy::findOrFail($request->pharmacy_id);
+      $pharmacy->name = $request->name;
+      $pharmacy->ville = $request->ville;
+      $pharmacy->address = $request->address;
+      $pharmacy->description = $request->description;
+      $pharmacy->phone1 = $request->phone1;
+      $pharmacy->active = $request->status;
+      $pharmacy->save();
+      notify()->success('Pharmacy updated Successfully !');
+
+        return redirect()->route("pharmacies.index");
     }
 
     /**

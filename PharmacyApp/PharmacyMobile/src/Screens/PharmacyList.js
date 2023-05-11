@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { ActivityIndicator, Button, FlatList, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import Item from "../Components/Item";
-import filter from "lodash.filter";
 import axios from "axios";
 import UserLocation from "../Components/UserLocation";
+import { IP_ADDRESS } from "@env";
 
 const PharmarcyList = (props) => {
   const { navigation } = props
@@ -11,7 +11,7 @@ const PharmarcyList = (props) => {
   const [searchPharmacies, setSearchPharmacies] = useState(null);
   const [loading, setLoading] = useState(true)
   const [searchText, setSearchText] = useState("")
-  const userLoc = UserLocation()
+  const { location, granted } = UserLocation()
 
   const handleSearch = (query) => {
     setSearchText(query)
@@ -42,8 +42,9 @@ const PharmarcyList = (props) => {
 
 
   const sendRequest = async (long, lat) => {
-    const endPoint = 'http://192.168.8.124:8000/api/pharmacies';
+    const endPoint = `http://${IP_ADDRESS}:8000/api/pharmacies`;
     try {
+      console.log(endPoint);
       await fetch(endPoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -66,11 +67,10 @@ const PharmarcyList = (props) => {
     }
   }
   useEffect(() => {
-    if (userLoc) {
-      const { longitude, latitude } = userLoc;
-      sendRequest(longitude, latitude);
+    if (location) {
+      sendRequest(location.longitude, location.latitude);
     }
-  }, [userLoc]);
+  }, [location]);
   // useEffect(() => {
   //   fetch(url)
   //     .then((response) => {
@@ -86,6 +86,15 @@ const PharmarcyList = (props) => {
 
   // }, []);
 
+  if (granted && !location) {
+    return (
+   <View>
+     <Text>Activate you location</Text> 
+    <Button title="Activate Location"  />
+   </View>
+
+    )
+  }
 
   return (
     <View style={styles.container}>
@@ -102,7 +111,7 @@ const PharmarcyList = (props) => {
               autoCorrect={false}
               onChangeText={(query) => handleSearch(query)}
             />
-
+            <Text style={styles.mainTitle}>Les pharmacies proche de vouz </Text>
           </View>
           <FlatList
             data={searchPharmacies}
@@ -129,6 +138,22 @@ const styles = StyleSheet.create({
     // backgroundColor: "#03C988",
     justifyContent: "center",
     flex: 1
+  },
+  mainTitle: {
+    marginHorizontal: 10,
+    marginVertical: 10,
+    color: "black",
+    fontFamily: 'sans-serif-thin',
+    fontWeight: 'bold',
+    "fontSize": 20,
+    textTransform: "uppercase",
+    "letterSpacing": 0.15,
+    "lineHeight": 24,
+    borderBottomColor: "#03C988",
+    borderBottomWidth: 1,
+    alignSelf: 'flex-start',
+    paddingBottom: 10,
+    borderRadius: 4,
   },
   textInput: {
 

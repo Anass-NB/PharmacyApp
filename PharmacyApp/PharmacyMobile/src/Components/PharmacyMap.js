@@ -2,7 +2,6 @@ import { ActivityIndicator, Button, Linking, StyleSheet } from "react-native";
 import { Text, View } from "react-native";
 import MapView from "react-native-maps";
 import { Marker } from 'react-native-maps';
-import UserLocation from "./UserLocation";
 import { useState } from "react";
 import ReportPharmacy from "./ReportPharmacy";
 import { EvilIcons } from '@expo/vector-icons';
@@ -10,40 +9,21 @@ import { Feather } from '@expo/vector-icons';
 
 
 
-const calculateDistance = (lat1, lon1, lat2, lon2) => {
-  const R = 6371; // Earth's radius in kilometers
-  const dLat = toRadians(lat2 - lat1);
-  const dLon = toRadians(lon2 - lon1);
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
-    Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const distance = R * c;
-  return distance.toFixed(2);
-};
-const toRadians = (degrees) => {
-  return degrees * Math.PI / 180;
-};
 
 
 
 
 
 
+const PharmacyMap = ({ route, }) => {
+  const { name, description, latitude, longitude, phone1, address, id, ville, distance, report_count } = route.params;
 
-
-
-const PharmacyMap = ({ route, navigation }) => {
-  const { name, description, latitude, longitude, phone1, address, id, ville } = route.params;
   const pharmacyRegion = {
     latitude: parseFloat(latitude),
     longitude: parseFloat(longitude),
-    latitudeDelta: 0.04,
-    longitudeDelta: 0.05,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
   };
-  const userLoc = UserLocation()
-  const [loading, setLoading] = useState(false);
 
   const handleSaveIpAddress = async () => {
     await saveIpAddress();
@@ -73,15 +53,15 @@ const PharmacyMap = ({ route, navigation }) => {
         </Text>
         <Text style={styles.pharmacyDescription}><Text style={styles.mainTitle}>
           Description</Text>: {description}</Text>
-        <Text>
-          {userLoc ? "Distance : " + calculateDistance(userLoc.latitude, userLoc.longitude, latitude, longitude) + " KM" : <ActivityIndicator size="small" color="#03C988" />
-          }
-        </Text>
+        <Text style={styles.pharmacyDescription}><Text style={styles.mainTitle}>
+          Distance</Text>: {distance.toFixed(2)} KM</Text>
+
         <View style={styles.buttonSection}>
-          <ReportPharmacy id={id} />
+          {report_count >= 5 ? <View style={styles.enPermanence}><Text style={styles.enPermanenceText}>Pharmacie En permanence</Text></View> : <ReportPharmacy id={id} />
+          }
           <View style={styles.callBtn}>
             <Feather name="phone-call" size={19} color="white" style={styles.iconCall} />
-            <Button title="Call" color={"red"}  onPress={() => {
+            <Button title="Call" color={"red"} onPress={() => {
               Linking.openURL(`tel:${phone1}`)
             }} />
           </View>
@@ -104,15 +84,13 @@ const styles = StyleSheet.create({
     width: "100%",
 
   },
-  callBtn:{
-    flex:1,
-    backgroundColor:"red",
-    flexDirection:"row",
-    alignItems:"center",
-    borderRadius:4
+  callBtn: {
+    backgroundColor: "red",
+    flexDirection: "row",
+    alignItems: "center",
   },
-  iconCall:{
-    padding:2,
+  iconCall: {
+    padding: 2,
   },
   buttonSection: {
     marginVertical: 10,
@@ -121,8 +99,22 @@ const styles = StyleSheet.create({
   },
   pharmacyDescription: {
 
-  }
-  , pharmacyName: {
+  },
+  enPermanence: {
+    flex: 1,
+    fontSize: 16,
+    backgroundColor: "#153462",
+
+    textAlign: "center",
+    justifyContent: "center",
+    // borderRadius: 8,
+    alignItems: "center"
+  },
+  enPermanenceText: {
+    color: "white",
+    fontWeight: "bold"
+  },
+  pharmacyName: {
     fontSize: 22,
     borderBottomColor: "green",
     borderBottomWidth: 2,

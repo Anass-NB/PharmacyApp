@@ -9,4 +9,8 @@ class Pharmacy extends Model
 {
     use HasFactory;
     protected $table = "resources";
+    public function report()
+    {
+      return $this->hasMany(Report::class);
+    }
 }

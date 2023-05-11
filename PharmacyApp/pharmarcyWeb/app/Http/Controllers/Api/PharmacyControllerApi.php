@@ -24,12 +24,18 @@ class PharmacyControllerApi extends Controller
     ) + sin( radians(?) ) *
     sin( radians( latitude ) ) )
 ) AS distance", [$latitude, $longitude, $latitude])
-      ->having('distance', '<', 20)
       ->orderBy('distance')
-      ->get(20);
+      ->limit(5)
+      ->withCount("report")
+      ->get();
+    $reports= [];
+    // foreach ($pharmacies as $key => $pharmacy) {
+    //   $reports[] = $pharmacy->report;
+    // }
 
     return response()->json([
       "pharmacies" => $pharmacies,
+      // "reports" => $reports,
     ]);
     // return response()->json([
     //   "pharmacies" => Pharmacy::where("ville", "=", "Fkih Ben Salah")->paginate(140),
@@ -56,15 +62,16 @@ class PharmacyControllerApi extends Controller
     if ($report) {
       return response()->json([
         'message' => 'Report  is alreadry sent !',
+        'report_count' => $report,
         "status" => false
       ]);
     }
-    if (!empty($ipAddress)) {
+
       $report = new Report();
       $report->ip_address = $ipAddress;
       $report->pharmacy_id = $pharmacyId;
       $report->save();
-    }
+
     return response()->json([
       'message' => 'Your request is saved with success ! ',
       "status" => true

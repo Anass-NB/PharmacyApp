@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Alert, Button, View } from "react-native";
 import axios from "axios";
+import { IP_ADDRESS } from "@env";
 
 const showMessage = (message) => {
   Alert.alert(
@@ -29,7 +30,7 @@ const ReportPharmacy = (props) => {
   }, []);
   //Send request 
   const sendRequest = async () => {
-    const endPoint = "http://192.168.8.124:8000/api/store-user-report";
+    const endPoint = `http://${IP_ADDRESS}:8000/api/store-user-report`;
     try {
       await fetch(endPoint, requestOptions)
         .then(response => {

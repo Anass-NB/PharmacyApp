@@ -1,6 +1,8 @@
+import * as React from 'react';
 import { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Image, Button, ActivityIndicator } from "react-native";
 import UserLocation from "./UserLocation";
+
 
 
 const Item = (props) => {
@@ -14,10 +16,14 @@ const Item = (props) => {
     <View style={styles.item}>
       <Image source={require("../../assets/pharmacy-logo.png")} style={styles.image} />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Pharmacie : {item.name}</Text>
+        <Text style={styles.title}>{item.name}</Text>
         <Text style={styles.address}>{item.address}</Text>
         <Text style={styles.address}>City : {item.ville}</Text>
         <Text style={styles.phone}>{item.phone1}</Text>
+        {item.report_count >= 5 ? (
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>En permanence</Text>
+        </View>) : <Text></Text>}
 
 
       </View>
@@ -32,12 +38,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 8,
     paddingHorizontal: 16,
-    backgroundColor: "#fefefe",
+    backgroundColor: "#F1F6F9",
 
-    borderBottomColor: "green",
-    borderBottomWidth: 3
-    // borderRadius: 26,
+    borderBottomColor: "#394867",
+    borderBottomWidth: 3,
+    borderRadius: 16,
 
+  },
+  badge: {
+    backgroundColor: '#153462',
+    borderRadius: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    alignSelf: 'flex-end',
+  },
+  badgeText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
   textContainer: {
     flex: 1,
