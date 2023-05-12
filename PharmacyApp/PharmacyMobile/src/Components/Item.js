@@ -20,7 +20,7 @@ const Item = (props) => {
         <Text style={styles.address}>{item.address}</Text>
         <Text style={styles.address}>City : {item.ville}</Text>
         <Text style={styles.phone}>{item.phone1}</Text>
-        {item.report_count >= 5 ? (
+        {item.report_count >= 2 ? (
         <View style={styles.badge}>
           <Text style={styles.badgeText}>En permanence</Text>
         </View>) : <Text></Text>}

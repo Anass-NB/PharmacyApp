@@ -23,7 +23,7 @@ class WebScraping extends Command
    *
    * @var string
    */
-  protected $description = 'Get the data from website';
+  protected $description = 'Get All pharmacies and store them in database';
 
   /**
    * Execute the console command.

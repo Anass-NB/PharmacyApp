@@ -57,7 +57,7 @@ const PharmacyMap = ({ route, }) => {
           Distance</Text>: {distance.toFixed(2)} KM</Text>
 
         <View style={styles.buttonSection}>
-          {report_count >= 5 ? <View style={styles.enPermanence}><Text style={styles.enPermanenceText}>Pharmacie En permanence</Text></View> : <ReportPharmacy id={id} />
+          {report_count >= 2 ? <View style={styles.enPermanence}><Text style={styles.enPermanenceText}>Pharmacie En permanence</Text></View> : <ReportPharmacy id={id} />
           }
           <View style={styles.callBtn}>
             <Feather name="phone-call" size={19} color="white" style={styles.iconCall} />

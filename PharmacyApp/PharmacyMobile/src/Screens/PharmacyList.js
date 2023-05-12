@@ -71,27 +71,13 @@ const PharmarcyList = (props) => {
       sendRequest(location.longitude, location.latitude);
     }
   }, [location]);
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       // console.log(data);
-  //       setPharmacies(data.pharmacies.data);
-  //       setSearchPharmacies(data.pharmacies.data);
-  //       setLoading(false)
-  //     })
-  //     .catch(error => console.error(error))
 
-  // }, []);
 
   if (granted && !location) {
     return (
-   <View>
-     <Text>Activate you location</Text> 
-    <Button title="Activate Location"  />
-   </View>
+      <View style={{flex:1,justifyContent:"center",alignItems:"center",}}>
+        <Text>Please Activate you location to display the nearest pharmacies !</Text>
+      </View>
 
     )
   }
@@ -115,6 +101,7 @@ const PharmarcyList = (props) => {
           </View>
           <FlatList
             data={searchPharmacies}
+
             initialNumToRender={10}
             maxToRenderPerBatch={10} // render 20 items per batch when scrolling
             windowSize={5} // keep 10 items in memory at a time

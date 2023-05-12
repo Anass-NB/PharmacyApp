@@ -13,6 +13,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('delete-reports')->daily();
+        //add the following line to server's cron file:
+        // * * * * * cd /PharmacyWeb && php artisan schedule:run >> /dev/null 2>&1
+
     }
 
     /**
