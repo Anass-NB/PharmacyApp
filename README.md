@@ -1,13 +1,17 @@
 # PharmacyFinder
->This is a mobile application designed to help users find the nearest pharmacies to their current location. The app uses the user's device location to fetch a list of pharmacies within a certain radius and sorts them by distance. The user can then view the details of each pharmacy, such as name, address, and phone number.
->The app also allows users to report whether a pharmacy is open or closed, providing other users with up-to-date information on the availability of the pharmacy. Users can also search for specific pharmacies by name, making it easier to find the one they need.
+>PharmacyFinder is a mobile application designed to help users easily find nearby pharmacies and connect with them for essential medication needs. The app provides a user-friendly interface to locate pharmacies and offers the ability to check if a pharmacy provides shipping services. Additionally, users can conveniently initiate conversations with pharmacies through WhatsApp for further assistance.
 
->Overall, this app aims to help users quickly and easily locate nearby pharmacies and make informed decisions about where to go for their healthcare needs.
-
-<img src='https://user-images.githubusercontent.com/110456240/234850504-8f6461c8-25a1-4948-b851-ac77e50b1270.jpeg' height="30%" width="30%" />
+<img src='https://github.com/Anass-NB/PharmacyFinder/assets/110456240/9c34624e-1661-45f4-879f-e8d35aafdaed' height="30%" width="30%" />
 
 
-<img src='https://user-images.githubusercontent.com/110456240/234850755-ba5a5771-9b42-4ab0-80fe-a3b140987056.jpeg' height="30%" width="30%" />
+<img src='https://github.com/Anass-NB/PharmacyFinder/assets/110456240/a7621a37-4b63-4936-bbef-8aeac23150fd' height="30%" width="30%" />
+
+
+<img src='https://github.com/Anass-NB/PharmacyFinder/assets/110456240/97a888f4-8a8b-4236-88ce-e001f918e080' height="30%" width="30%" />
+
+
+
+
 
 
 ## Installation
@@ -18,6 +22,10 @@ cd PharmacyApp
 ```
 
 ## Starting with the web project : (Laravel Application)
+1. 
+    ```sh
+    cd PharmacyWeb
+    ```
 1. Copy .env.example file to .env file
     ```sh
     cp .env.example .env
