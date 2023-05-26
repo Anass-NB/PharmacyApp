@@ -1,8 +1,8 @@
-import * as React from 'react';
+  import * as React from 'react';
 import { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Image, Button, ActivityIndicator } from "react-native";
 import UserLocation from "./UserLocation";
-
+import i18n from "../Components/i18n"
 
 
 const Item = (props) => {
@@ -18,11 +18,11 @@ const Item = (props) => {
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.name}</Text>
         <Text style={styles.address}>{item.address}</Text>
-        <Text style={styles.address}>City : {item.ville}</Text>
+        <Text style={styles.address}>{ i18n.t("city") } : {item.ville}</Text>
         <Text style={styles.phone}>{item.phone1}</Text>
         {item.report_count >= 2 ? (
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>En permanence</Text>
+          <Text style={styles.badgeText}>{i18n.t("Pharmacie_En_permanence")}</Text>
         </View>) : <Text></Text>}
 
 

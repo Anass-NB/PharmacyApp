@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Alert, Button, View } from "react-native";
 import axios from "axios";
 import { IP_ADDRESS } from "@env";
-
+import i18n from "./i18n";
 const showMessage = (message) => {
   Alert.alert(
     'Message',
@@ -50,7 +50,7 @@ const ReportPharmacy = (props) => {
     <View>
       <Button
         onPress={sendRequest}
-        title={"déclarer cette pharmacie en permanence"}
+        title={i18n.t("report_pharmacy")}
         color="#03C988" />
 
     </View>

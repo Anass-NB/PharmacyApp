@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Button, FlatList, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { ActivityIndicator, Button, FlatList, I18nManager, Settings, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, Image, View, Modal, Pressable } from "react-native";
 import Item from "../Components/Item";
+
 import axios from "axios";
 import UserLocation from "../Components/UserLocation";
 import { IP_ADDRESS } from "@env";
+import { en, ar, fr } from "./../../localizations"
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
 
 const PharmarcyList = (props) => {
   const { navigation } = props
@@ -12,6 +16,28 @@ const PharmarcyList = (props) => {
   const [loading, setLoading] = useState(true)
   const [searchText, setSearchText] = useState("")
   const { location, granted } = UserLocation()
+  let [locale, setLocale] = useState(Localization.locale);
+  i18n.fallbacks = true;
+  i18n.translations = { en, ar, fr };
+  i18n.locale = locale;
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const languageOptions = [
+    { id: 'en', label: 'English', flag: require('./../../assets/uk-flag.png') },
+    { id: 'ar', label: 'Arabic', flag: require('./../../assets/ma-flag.png') },
+    { id: 'fr', label: 'French', flag: require('./../../assets/france-flag.png') },
+  ];
+
+  const handleLanguageSelection = (language) => {
+    // Update the selected language
+    setModalVisible(false);
+    // Implement the logic to update the language based on the selected option
+    // For example, you can use i18n to change the locale and update translations
+    setLocale(language);
+  };
+
+
+
 
   const handleSearch = (query) => {
     setSearchText(query)
@@ -26,16 +52,6 @@ const PharmarcyList = (props) => {
     }
     console.log(query);
   }
-
-
-
-
-
-
-
-
-
-
 
 
   const url = 'http://192.168.8.124:8000/api/pharmacies?page=1';
@@ -75,7 +91,7 @@ const PharmarcyList = (props) => {
 
   if (granted && !location) {
     return (
-      <View style={{flex:1,justifyContent:"center",alignItems:"center",}}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
         <Text>Please Activate you location to display the nearest pharmacies !</Text>
       </View>
 
@@ -89,15 +105,59 @@ const PharmarcyList = (props) => {
         :
         (<View style={styles.ListContent} >
           <View >
-            <TextInput
-              style={styles.textInput}
-              placeholder="Search"
-              clearButtonMode="always"
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={(query) => handleSearch(query)}
-            />
-            <Text style={styles.mainTitle}>Les pharmacies proche de vouz </Text>
+            <View>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Search"
+                clearButtonMode="always"
+                autoCapitalize="none"
+                autoCorrect={false}
+                onChangeText={(query) => handleSearch(query)}
+              />
+              <Pressable
+                style={[styles.button, styles.buttonOpen]}
+                onPress={() => setModalVisible(true)}>
+                <Text style={styles.textStyle}>{i18n.t("language")}</Text>
+                <Image source=
+                  {locale == "en" ?
+                    require('./../../assets/uk-flag.png')
+                    : locale == "ar" ? require('./../../assets/ma-flag.png')
+                      : locale == "fr" ? require('./../../assets/france-flag.png')
+                        : undefined} />
+              </Pressable>
+            </View>
+            <Text style={styles.mainTitle}>{i18n.t('title')}</Text>
+
+
+            <View style={styles.centeredView}>
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                  Alert.alert('Modal has been closed.');
+                  setModalVisible(!modalVisible);
+                }}>
+                <View style={styles.centeredView}>
+                  <View style={styles.modalView}>
+                    <Text style={styles.modalText}>Choose a language:</Text>
+                    {languageOptions.map((option) => (
+                      <TouchableOpacity
+                        key={option.id}
+                        style={styles.languageOption}
+                        onPress={() => handleLanguageSelection(option.id)}
+                      >
+                        <Image source={option.flag} style={styles.flagImage} />
+                        <Text style={styles.languageLabel}>{option.label}</Text>
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+
+                </View>
+              </Modal>
+            </View>
+
+
           </View>
           <FlatList
             data={searchPharmacies}
@@ -155,7 +215,52 @@ const styles = StyleSheet.create({
   ListContent: {
     // marginTop: StatusBar.currentHeight || 0,
     flex: 1
-  }
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 4,
+    padding: 10,
+    elevation: 2,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonOpen: {
+
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'black',
+    marginHorizontal : 6,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
 
 })
 export default PharmarcyList;
