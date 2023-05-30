@@ -9,6 +9,16 @@
 @endsection
 
 @section('content')
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
   <div class="flex-auto p-4">
     <div class="sm:col-span-12  md:col-span-12 lg:col-span-6 xl:col-span-6 ">
       <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full relative">
@@ -33,6 +43,9 @@
                     </th>
                     <th scope="col" class="p-3 text-xs font-medium tracking-wider text-left text-slate-100 uppercase">
                       Phone No
+                    </th>
+                    <th scope="col" class="p-3 text-xs font-medium tracking-wider text-left text-slate-100 uppercase">
+                      Shipping Support
                     </th>
                     <th scope="col" class="p-3 text-xs font-medium tracking-wider text-left text-slate-100 uppercase">
                       Status
@@ -67,6 +80,15 @@
                         {{ $pharmacy->phone1 }}
                       </td>
                       <td class="p-3 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                        @if ($pharmacy->support_shipping == 1)
+                          <span
+                            class="bg-green-500 text-white text-[11px] font-medium mr-1 px-2.5 py-0.5 rounded ">YES</span>
+                        @else
+                          <span
+                            class="bg-red-500 text-white text-[11px] font-medium mr-1 px-2.5 py-0.5 rounded ">No</span>
+                        @endif
+                      </td>
+                      <td class="p-3 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                         @if ($pharmacy->active == 1)
                           <span
                             class="bg-green-500 text-white text-[11px] font-medium mr-1 px-2.5 py-0.5 rounded ">Active</span>
@@ -75,6 +97,7 @@
                             Active</span>
                         @endif
                       </td>
+
 
                       <td class="p-3 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                         <span class="bg-indigo-600/5 text-indigo-600 text-[11px] font-medium px-2.5 py-0.5 rounded h-5">
@@ -151,6 +174,41 @@
                                         Description
                                       </label>
                                     </div>
+                                    <div class="grid xl:grid-cols-2 xl:gap-6">
+                                      <fieldset>
+                                        <legend class="sr-only">SHipping</legend>
+
+                                        <div class="flex items-center mb-3">
+                                          <input id="country-option-1" type="radio" name="support_shipping"
+                                            value="1"
+                                            class="w-4 h-4 border-gray-300  dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                                            aria-labelledby="country-option-1" aria-describedby="country-option-1"
+                                            {{ $pharmacy->support_shipping == 1 ? 'checked' : '' }}>
+                                          <label for="country-option-1"
+                                            class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Support Shipping
+                                          </label>
+                                        </div>
+
+                                        <div class="flex items-center mb-3">
+                                          <input id="country-option-2" type="radio" name="support_shipping"
+                                            value="0"
+                                            class="w-4 h-4 border-gray-300  dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                                            aria-labelledby="country-option-2"
+                                            {{ $pharmacy->support_shipping == 0 ? 'checked' : '' }}
+                                            aria-describedby="country-option-2">
+                                          <label for="country-option-2"
+                                            class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Not Support Shipping
+                                          </label>
+                                        </div>
+
+
+
+                                      </fieldset>
+
+                                    </div>
+
                                     <div class="relative z-0 mb-2 w-full group">
                                       <input type="text" name="phone1" id="phone1"
                                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-slate-300/60 appearance-none dark:text-slate-300 dark:border-slate-700 dark:focus:border-primary-500 focus:outline-none focus:ring-0 focus:border-primary-500 peer"

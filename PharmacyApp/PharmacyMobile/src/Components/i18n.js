@@ -1,6 +1,5 @@
-import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
-import { en, ar, fr } from './../../localizations'; // Import your translation files
+import { en, ar, fr } from '../../localizations'; // Import your translation files
 
 // Set up i18n
 

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Button, FlatList, I18nManager, Settings, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, Image, View, Modal, Pressable } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, Image, View, Modal, Pressable } from "react-native";
 import Item from "../Components/Item";
 
-import axios from "axios";
 import UserLocation from "../Components/UserLocation";
 import { IP_ADDRESS } from "@env";
 import { en, ar, fr } from "./../../localizations"
@@ -29,10 +28,7 @@ const PharmarcyList = (props) => {
   ];
 
   const handleLanguageSelection = (language) => {
-    // Update the selected language
     setModalVisible(false);
-    // Implement the logic to update the language based on the selected option
-    // For example, you can use i18n to change the locale and update translations
     setLocale(language);
   };
 
@@ -58,7 +54,7 @@ const PharmarcyList = (props) => {
 
 
   const sendRequest = async (long, lat) => {
-    const endPoint = `http://${IP_ADDRESS}:8000/api/pharmacies`;
+    const endPoint = `https://${IP_ADDRESS}/api/pharmacies`;
     try {
       console.log(endPoint);
       await fetch(endPoint, {

@@ -9,7 +9,7 @@
   <meta content="" name="Mannatthemes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- App favicon -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="{{ asset('assets/images/pharmacy/mainLogo.png') }}" />
 
 
   <!-- Css -->
@@ -28,7 +28,8 @@
     <div
       class="w-full  m-auto bg-white dark:bg-slate-800/60 rounded shadow-lg ring-2 ring-slate-300/50 dark:ring-slate-700/50 lg:max-w-md">
       <div class="text-center p-6 bg-slate-900 rounded-t">
-        <a href="#email"><img src="assets/images/logo-sm.png" alt="" class="w-14 h-14 mx-auto mb-2"></a>
+        {{-- <a href="#email"><img src="{{ assetz }}" alt="logo"
+            class="w-14 h-14 mx-auto mb-2"></a> --}}
         <h3 class="font-semibold text-white text-xl mb-1">Let's Get Started PharmacyFinder </h3>
         <p class="text-xs text-slate-400">Sign in to continue to PharmacyFinder Admin Dashboard.</p>
       </div>
@@ -70,9 +71,9 @@
           </button>
         </div>
       </form>
-      <p class="mb-5 text-sm font-medium text-center text-slate-500"> Don't have an account? <a
+      {{-- <p class="mb-5 text-sm font-medium text-center text-slate-500"> Don't have an account? <a
           href="{{ route('register') }}" class="font-medium text-blue-600 hover:underline">Sign up</a>
-      </p>
+      </p> --}}
     </div>
   </div>
 

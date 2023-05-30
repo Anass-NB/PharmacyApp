@@ -2,7 +2,6 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PharmarcyList from '../Screens/PharmacyList';
 import PharmacyMap from './PharmacyMap';
-import { TouchableOpacity, Image } from 'react-native';
 import i18n from './i18n';
 const Tabs = () => {
 

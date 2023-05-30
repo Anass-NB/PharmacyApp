@@ -1,8 +1,7 @@
-import { ActivityIndicator, Button, Linking, StyleSheet, TouchableOpacity } from "react-native";
+import { Button, Linking, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, View } from "react-native";
 import MapView from "react-native-maps";
 import { Marker } from 'react-native-maps';
-import { useState } from "react";
 import ReportPharmacy from "./ReportPharmacy";
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
@@ -59,7 +58,7 @@ const PharmacyMap = ({ route, }) => {
         <Text style={styles.pharmacyDescription}><Text style={styles.mainTitle}>
           {i18n.t("description")}</Text>: {description}</Text>
         <Text style={styles.pharmacyDescription}><Text style={styles.mainTitle}>
-          {i18n.t("distance")}</Text>: {distance.toFixed(2)} KM</Text>
+          {i18n.t("distance")}</Text>: {parseFloat(distance).toFixed(2)} KM</Text>
 
         <View style={styles.buttonSection}>
 

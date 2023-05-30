@@ -9,7 +9,7 @@
   <meta content="" name="Mannatthemes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- App favicon -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="assets/images/pharmacy/mainLogo.png" />
 
 
   @yield('styles')

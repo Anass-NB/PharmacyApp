@@ -2,9 +2,9 @@
   <div
     class="flex w-[60px] bg-iconbar dark:bg-slate-800 py-4 items-center fixed top-0 z-[99]
           rounded-[100px] m-4 flex-col h-[calc(100%-30px)]">
-    <a href="index.html" class="block text-center logo">
+    <a href="{{ url('/') }}" class="block text-center logo">
       <span>
-        <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm
+        <img src="{{ asset('assets/images/pharmacy/mainLogo.png') }}" alt="logo-small" class="logo-sm
                 h-8">
       </span>
     </a>
@@ -24,68 +24,24 @@
               <i class="ti ti-smart-home text-3xl"></i>
             </button>
           </li>
-          <li class="my-0 flex justify-center menu-items" role="presentation">
-            <button
-              class="inline-block py-4 px-4 text-sm font-medium relative
-                    text-center text-gray-700 rounded-t-lg border-0
-                    border-transparent hover:text-primary-500
-                    dark:text-gray-400 dark:hover:text-primary-400 menu-link"
-              id="Apps-tab" data-tabs-target="#Apps" type="button" role="tab" aria-controls="Apps"
-              aria-selected="false">
-              <i class="ti ti-apps text-3xl"></i>
-            </button>
-          </li>
-          <li class="my-0 flex justify-center menu-items" role="presentation">
-            <button
-              class="inline-block py-4 px-4 text-sm font-medium relative
-                    text-center text-gray-700 rounded-t-lg border-0
-                    border-transparent hover:text-primary-500
-                    dark:text-gray-400 dark:hover:text-primary-400 menu-link"
-              id="Uikit-tab" data-tabs-target="#Uikit" type="button" role="tab" aria-controls="Uikit"
-              aria-selected="false">
-              <i class="ti ti-planet text-3xl"></i>
-            </button>
-          </li>
-          <li class="my-0 flex justify-center menu-items" role="presentation">
-            <button
-              class="inline-block py-4 px-4 text-sm font-medium relative
-                    text-center text-gray-700 rounded-t-lg border-0
-                    border-transparent hover:text-primary-500
-                    dark:text-gray-400 dark:hover:text-primary-400 menu-link"
-              id="Pages-tab" data-tabs-target="#Pages" type="button" role="tab" aria-controls="Pages"
-              aria-selected="false">
-              <i class="ti ti-files text-3xl"></i>
-            </button>
-          </li>
-          <li class="my-0 flex justify-center menu-items" role="presentation">
-            <button
-              class="inline-block py-4 px-4 text-sm font-medium relative
-                    text-center text-gray-700 rounded-t-lg border-0
-                    border-transparent hover:text-primary-500
-                    dark:text-gray-400 dark:hover:text-primary-400 menu-link"
-              id="Authentication-tab" data-tabs-target="#Authentication" type="button" role="tab"
-              aria-controls="Authentication" aria-selected="false">
-              <i class="ti ti-shield-lock text-3xl"></i>
-            </button>
-          </li>
+
         </ul>
       </div>
     </div>
-    <div class="flex flex-col items-center mt-auto bg-iconbar dark:bg-slate-800 shrink-0">
-      <a href="">
-        <img src="assets/images/users/avatar-3.jpg" alt="" class="rounded-full w-8 h-8">
-      </a>
-    </div>
+
   </div>
   <div
     class="main-menu-inner h-full w-[200px] my-4  fixed top-0 z-[99] left-[calc(60px+16px)] rtl:right-[calc(60px+16px)] rtl:left-0 rounded-lg transition delay-150 duration-300 ease-in-out">
     <div class="main-menu-inner-logo">
       <div class="flex items-center">
-        <a href="index.html" class="leading-[60px]">
-          <img src="assets/images/logo-2.png" alt=""
-            class="inline-block dark:hidden h-[15px] ltr:ml-4 rtl:ml-0 rtl:mr-4">
-          <img src="assets/images/logo.png" alt=""
-            class=" hidden dark:inline-block h-[15px] ltr:ml-4 rtl:ml-0 rtl:mr-4">
+        <a href="{{ url('/') }}" class="leading-[60px]"
+          style="margin-left: 10px;
+        font-family: monospace;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #4CAF50;">
+          Pharmacy Finder
         </a>
         <div class="ltr:mr-2 ltr:lg:mr-4 rtl:mr-0 rtl:ml-2 rtl:lg:mr-0 rtl:lg:ml-4 ml-auto block xl:hidden">
           <button id="toggle-menu-hide-2" class="button-menu-mobile-2 flex rounded-full md:mr-0 relative">

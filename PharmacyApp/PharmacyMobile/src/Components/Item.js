@@ -1,7 +1,5 @@
   import * as React from 'react';
-import { useEffect, useState } from "react";
-import { StyleSheet, View, Text, Image, Button, ActivityIndicator } from "react-native";
-import UserLocation from "./UserLocation";
+import { StyleSheet, View, Text, Image  } from "react-native";
 import i18n from "../Components/i18n"
 
 

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "PharmacyMobile",
+    "name": "Pharmacy Finder",
     "slug": "PharmacyMobile",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anassnbbnnb1.pharmacyFinder"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4288f79c-61cf-4bb0-ad21-171a2046f045"
+      }
+    },
+    "owner": "anass-nb1",
+    "plugins": [
+      "expo-localization"
+    ]
   }
 }

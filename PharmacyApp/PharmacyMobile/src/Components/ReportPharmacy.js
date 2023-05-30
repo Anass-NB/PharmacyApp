@@ -30,7 +30,7 @@ const ReportPharmacy = (props) => {
   }, []);
   //Send request 
   const sendRequest = async () => {
-    const endPoint = `http://${IP_ADDRESS}:8000/api/store-user-report`;
+    const endPoint = `https://${IP_ADDRESS}/api/store-user-report`;
     try {
       await fetch(endPoint, requestOptions)
         .then(response => {
