@@ -27,6 +27,29 @@
   <link rel="stylesheet" href="assets/home/assets/css/default.css" />
   <link rel="stylesheet" href="assets/home/assets/css/style.css" />
   <link rel="stylesheet" href="assets/home/assets/css/responsive.css" />
+  <style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #03C988;
+      border-radius: 15px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #84C1BE;
+    }
+  </style>
 </head>
 
 <body>
@@ -67,23 +90,24 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="#home">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="#download_app">Download</a>
+                    <a class="nav-link" href="#features">Fonctionnalités</a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="#footer">Contact Us</a>
+                    <a class="nav-link" href="#download_app">Télécharger
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#footer">Contactez-nous</a>
                   </li>
                 </ul>
               </div>
               <div class="header-btn d-none d-lg-block">
-                <a href="{{ route('login') }}" class="btn btn-style-two">Login</a>
+                <a href="{{ route('login') }}" class="btn btn-style-two">Connexion</a>
               </div>
             </nav>
           </div>
@@ -103,15 +127,15 @@
           <div class="col-xl-7 col-lg-6">
             <div class="svn-banner-content">
               <h6 class="sub-title wow fadeInUp" data-wow-delay=".2s">
-                <span>New</span> Available on Play Store
+                <span>Nouveau</span> Disponible sur PlayStore
               </h6>
               <h2 class="title wow fadeInUp" data-wow-delay=".4s">
-                Discover Nearby Pharmacies
+                Découvrez les pharmacies à proximité
               </h2>
               <p class="wow fadeInUp" data-wow-delay=".6s">
-                Discover the closest pharmacies , permanent pharmacies based on your current location
-                in just a few clicks. Stay informed about the operating status
-                of pharmacies near you.
+                Découvrez les pharmacies les plus proches, les pharmacies permanentes en fonction de votre localisation
+                actuelle en quelques clics seulement. Restez informé de l'état de fonctionnement des pharmacies près de
+                chez vous.
               </p>
               <div class="banner-btn" id="download_app">
                 <a href="#" class="playstore wow fadeInLeft" data-wow-delay=".8s">
@@ -161,26 +185,22 @@
           </div>
           <div class="col-lg-6">
             <div class="section-title mb-40">
-              <h2 class="title">About The App</h2>
+              <h2 class="title">À propos de l'application</h2>
             </div>
             <div class="about-content">
               <p>
-                Pharmacy Finder Is a powerful tool that allows users to effortlessly discover
-                and locate nearby pharmacies based on their current location.
-                With just a few clicks, users can access a comprehensive list
-                of pharmacies, complete with detailed information such as
-                addresses, contact details , availability to ship medications and the important thing is availability to
-                work . Users can stay informed about open and closed
-                pharmacies, ensuring they have the most up-to-date
-                information. <br> The app also features an interactive map display,
-                enabling users to visualize the proximity of pharmacies to
-                their location and navigate through the map with ease. With
-                its user-friendly interface and convenient features, the
-                Nearest Pharmacies Finder app is a valuable resource for
-                individuals seeking easy access to essential healthcare
-                services.
+                Pharmacy Finder Est un outil qui permet aux utilisateurs de découvrir et de localiser sans
+                effort les pharmacies de garde en fonction de leur emplacement actuel.Les
+                utilisateurs peuvent accéder à la liste des pharmacies en permanence, avec des informations détaillées
+                telles que les adresses, les coordonnées , la disponibilité pour La Livraison des médicaments . Les
+                utilisateurs peuvent rester informés sur les pharmacies
+                ouvertes et fermées, en s'assurant qu'ils disposent des informations les plus récentes.
+                L'application propose également un affichage cartographique interactif, permettant aux utilisateurs de
+                visualiser la proximité des pharmacies par rapport à leur emplacement et de naviguer facilement sur la
+                carte. Avec son interface conviviale et ses fonctionnalités pratiques, l'application
+                est une ressource précieuse pour les personnes qui recherchent un accès facile aux pharmacies.
               </p>
-              <a href="#features" class="btn btn-style-three">Read more</a>
+              <a href="#features" class="btn btn-style-three">En Savoir Plus</a>
             </div>
           </div>
         </div>
@@ -194,11 +214,9 @@
         <div class="row justify-content-center">
           <div class="col-xl-6 col-lg-8 col-md-10">
             <div class="section-title text-center mb-60">
-              <h2 class="title">Apps Features</h2>
+              <h2 class="title">Fonctionnalités de l'application </h2>
               <p>
-                But I must explain to you how all this mistaken idea of
-                denouncing pleasure and praising pain was born will give
-                complete account.
+                Fonctionnalités de Pharmacy Finder
               </p>
             </div>
           </div>
@@ -210,11 +228,11 @@
                 <img src="assets/home/assets/img/icons/app_features01.png" alt="feature" />
               </div>
               <div class="add-features-content">
-                <h4 class="title">Location Detection</h4>
+                <h4 class="title">Détection D'emplacement</h4>
                 <p>
-                  The app uses the device's location services to detect the
-                  user's current location automatically. This allows for
-                  accurate search results based on proximity.
+                  L'application utilise les services de localisation de l'appareil pour détecter automatiquement la
+                  position actuelle de l'utilisateur. Cela permet des résultats de recherche précis basés sur la
+                  proximité.
                 </p>
               </div>
             </div>
@@ -223,10 +241,10 @@
                 <img src="assets/home/assets/img/icons/app_features02.png" alt="" />
               </div>
               <div class="add-features-content">
-                <h4 class="title">Explore Permanent Pharmacies</h4>
+                <h4 class="title">Explorez Les Pharmacies de garde</h4>
                 <p>
-                  PharmaFinder, offers a user-friendly feature that allows users to access information about permanent
-                  pharmacies and find them easly.
+                  PharmaFinder, offre une fonctionnalité conviviale qui permet aux utilisateurs d'accéder aux
+                  informations sur les pharmacies permanentes et de les trouver facilement.
                 </p>
               </div>
             </div>
@@ -235,12 +253,12 @@
                 <img src="assets/home/assets/img/icons/app_features03.png" alt="" />
               </div>
               <div class="add-features-content">
-                <h4 class="title">Interactive Map</h4>
+                <h4 class="title">Carte Interactive
+                </h4>
                 <p>
-                  The app utilizes an interactive map to display the
-                  pharmacies' locations visually. Users can tap on a pharmacy
-                  marker to view more information about it, such as address,
-                  contact details.
+                  L'application utilise une carte interactive pour afficher visuellement les emplacements des
+                  pharmacies. Les utilisateurs peuvent appuyer sur un marqueur de pharmacie pour afficher plus
+                  d'informations à son sujet, telles que l'adresse, les coordonnées.
                 </p>
               </div>
             </div>
@@ -256,9 +274,10 @@
                 <img src="assets/home/assets/img/icons/app_features04.png" alt="" />
               </div>
               <div class="add-features-content">
-                <h4 class="title">Users reports</h4>
+                <h4 class="title">Rapports Des Utilisateurs</h4>
                 <p>
-                  By simply tapping a button, users can report whether a pharmacy is open or closed at any given moment.
+                  En appuyant simplement sur un bouton, les utilisateurs peuvent signaler si une pharmacie est ouverte
+                  ou fermée à un moment donné.
                 </p>
               </div>
             </div>
@@ -267,10 +286,10 @@
                 <img src="assets/home/assets/img/icons/app_features05.png" alt="" />
               </div>
               <div class="add-features-content">
-                <h4 class="title">Contact Pharmacy</h4>
+                <h4 class="title">Contacter Une Pharmacie</h4>
                 <p>
-                  Users can seamlessly launch a WhatsApp conversation directly with the selected pharmacy and also make
-                  a phone call.
+                  Les utilisateurs peuvent lancer en toute transparence une conversation WhatsApp directement avec la
+                  pharmacie sélectionnée et également passer un appel téléphonique.
                 </p>
               </div>
             </div>
@@ -279,10 +298,10 @@
                 <img src="assets/home/assets/img/icons/app_features06.png" alt="" />
               </div>
               <div class="add-features-content">
-                <h4 class="title">Multilanguage Support</h4>
+                <h4 class="title"> Multi langues </h4>
                 <p>
-                  With support for multiple languages, users can choose their preferred language from a wide range of
-                  options.
+                  Avec la prise en charge de plusieurs langues, les utilisateurs peuvent choisir leur langue préférée
+                  parmi un large éventail d'options.
                 </p>
               </div>
             </div>
@@ -312,8 +331,9 @@
                 </div>
                 <div class="footer-content">
                   <p>
-                    Discover the closest pharmacies , permanent pharmacies based on your current location in just a few
-                    clicks. Stay informed about the operating status of pharmacies near you.
+                    Découvrez les pharmacies les plus proches, les pharmacies permanentes en fonction de votre
+                    localisation actuelle en quelques clics seulement. Restez informé de l'état de fonctionnement des
+                    pharmacies près de chez vous.
                   </p>
                 </div>
               </div>
@@ -321,13 +341,13 @@
             <div class="col-xl-2 offset-xl-1 col-lg-4 col-md-6">
               <div class="footer-widget mb-30">
                 <div class="fw-title">
-                  <h4 class="title">Useful Links</h4>
+                  <h4 class="title">Liens </h4>
                 </div>
                 <div class="fw-link">
                   <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#download_app">The App</a></li>
-                    <li><a href="#">Admin panel</a></li>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#download_app">L'application</a></li>
+                    <li><a href="/login">Espace Admin</a></li>
 
                   </ul>
                 </div>
@@ -337,27 +357,26 @@
             <div class="col-lg-4 col-md-6">
               <div class="footer-widget mb-30">
                 <div class="fw-title">
-                  <h4 class="title">Contact Us</h4>
+                  <h4 class="title">Contactez-nous
+                  </h4>
                 </div>
                 <div class="contact-address mb-20">
                   <ul>
                     <li>
                       <i class="fas fa-home"></i>
-                      <p>Morocco</p>
+                      <p>Maroc</p>
                     </li>
                     <li>
                       <i class="far fa-envelope-open"></i>
                       <p>Anassnabil067@gmail.com</p>
                     </li>
-                    <!-- <li>
-                        <a href="#"
-                          ><i class="fas fa-headphones"></i>+012 (4567) 789</a
-                        >
-                      </li> -->
+                    <li>
+                      <a href="#"><i class="fas fa-headphones"></i>hi@sht.ma</a>
+                    </li>
                   </ul>
                 </div>
                 <div class="footer-social">
-                  <h6 class="title">Follow Us</h6>
+                  <h6 class="title">Suivez-nous</h6>
                   <ul>
                     <li>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -386,11 +405,11 @@
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="footer-bottom-menu">
-                <!-- <ul>
-                    <li><a href="#">Terms & Condition</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#footer">Contact Us</a></li>
-                  </ul> -->
+                <ul>
+                  <li><a href="#footer">BY ANASS NABIL</a></li>
+                  {{-- <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#footer">Contact Us</a></li> --}}
+                </ul>
               </div>
             </div>
           </div>
