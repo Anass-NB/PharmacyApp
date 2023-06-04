@@ -1,5 +1,5 @@
 # PharmacyFinder
->PharmacyFinder is a mobile application designed to help users easily find nearby pharmacies and connect with them for essential medication needs. The app provides a user-friendly interface to locate pharmacies and offers the ability to check if a pharmacy provides shipping services. Additionally, users can conveniently initiate conversations with pharmacies through WhatsApp for further assistance.
+>PharmacyFinder is a mobile application designed to help users easily find nearby pharmacies and connect with them for essential medication needs. The app provides a user-friendly interface to locate pharmacies and offers the ability to check if a pharmacy provides shipping services. Additionally, users can conveniently initiate conversations with pharmacies through WhatsApp for further assistance..
 
 <img src='https://github.com/Anass-NB/PharmacyFinder/assets/110456240/9c34624e-1661-45f4-879f-e8d35aafdaed' height="30%" width="30%" />
 

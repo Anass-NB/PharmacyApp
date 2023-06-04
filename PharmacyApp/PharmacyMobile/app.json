@@ -18,11 +18,16 @@
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBOt4kKgAZlizR9mFSkKty1gBl7Jb1OlM0"
+        }
+      },
+      "package": "com.anassnbbnnb1.pharmacyFinder",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.anassnbbnnb1.pharmacyFinder"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

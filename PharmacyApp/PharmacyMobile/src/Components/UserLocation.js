@@ -6,6 +6,7 @@ const UserLocation = () => {
   const [userLocation, setUserLocation] = useState(null)
   const [granted, setGranted] = useState(false)
 
+
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, Image, View, Modal, Pressable } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, Image,Button, View, Modal, Pressable } from "react-native";
 import Item from "../Components/Item";
 
 import UserLocation from "../Components/UserLocation";
@@ -49,7 +49,9 @@ const PharmarcyList = (props) => {
     console.log(query);
   }
 
-
+  const handleOpenSettings = async () => {
+    await Location.openSettings();
+  };
   const url = 'http://192.168.8.124:8000/api/pharmacies?page=1';
 
 
@@ -85,10 +87,11 @@ const PharmarcyList = (props) => {
   }, [location]);
 
 
-  if (granted && !location) {
+  if (!location) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
-        <Text>Please Activate you location to display the nearest pharmacies !</Text>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center",textAlign:"center"}}>
+        <Text>Location access denied. Please enable location services in your device settings...</Text>
+
       </View>
 
     )

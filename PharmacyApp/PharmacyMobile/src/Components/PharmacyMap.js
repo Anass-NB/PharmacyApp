@@ -1,11 +1,12 @@
 import { Button, Linking, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, View } from "react-native";
-import MapView from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import ReportPharmacy from "./ReportPharmacy";
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import i18n from "./i18n";
+
 
 
 
@@ -36,6 +37,7 @@ const PharmacyMap = ({ route, }) => {
     <View style={styles.container}>
 
       <MapView
+        provider={PROVIDER_GOOGLE} 
         style={styles.map}
         initialRegion={pharmacyRegion}
       >
@@ -67,7 +69,7 @@ const PharmacyMap = ({ route, }) => {
               <Text style={styles.enPermanenceText}>
                 {i18n.t("Pharmacie_En_permanence")}
               </Text>
-            </View> 
+            </View>
             : <ReportPharmacy id={id} />
           }
           <View style={styles.callBtn}>
@@ -77,7 +79,7 @@ const PharmacyMap = ({ route, }) => {
             }} />
           </View>
         </View>
-        <View>{support_shipping == 1 ? (<Text style={styles.shippingTextSupport}>{i18n.t("NotSupportShipping")}</Text>) : (<View>
+        <View>{support_shipping == 0 ? (<Text style={styles.shippingTextSupport}>{i18n.t("NotSupportShipping")}</Text>) : (<View>
           <Text style={styles.shippingTextSupportTrue}>{i18n.t("SupportShipping")}</Text>
           <TouchableOpacity onPress={handleWhatsappMessage} style={styles.pharmacyContact}>
             <FontAwesome name="whatsapp" size={24} color="#25D366" />

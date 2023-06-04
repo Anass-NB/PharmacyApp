@@ -18,7 +18,7 @@ const Item = (props) => {
         <Text style={styles.address}>{item.address}</Text>
         <Text style={styles.address}>{ i18n.t("city") } : {item.ville}</Text>
         <Text style={styles.phone}>{item.phone1}</Text>
-        {item.report_count >= 2 ? (
+        {item.report_count >= 5 ? (
         <View style={styles.badge}>
           <Text style={styles.badgeText}>{i18n.t("Pharmacie_En_permanence")}</Text>
         </View>) : <Text></Text>}
