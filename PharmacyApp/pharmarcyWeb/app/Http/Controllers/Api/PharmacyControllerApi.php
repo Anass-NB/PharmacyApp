@@ -28,7 +28,7 @@ class PharmacyControllerApi extends Controller
       ->limit(5)
       ->withCount("report")
       ->get();
-    $reports= [];
+    $reports = [];
     // foreach ($pharmacies as $key => $pharmacy) {
     //   $reports[] = $pharmacy->report;
     // }
@@ -43,13 +43,6 @@ class PharmacyControllerApi extends Controller
     // ]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   */
-  public function create()
-  {
-    //
-  }
 
   /**
    * Store a newly created resource in storage.
@@ -67,10 +60,10 @@ class PharmacyControllerApi extends Controller
       ]);
     }
 
-      $report = new Report();
-      $report->ip_address = $ipAddress;
-      $report->pharmacy_id = $pharmacyId;
-      $report->save();
+    $report = new Report();
+    $report->ip_address = $ipAddress;
+    $report->pharmacy_id = $pharmacyId;
+    $report->save();
 
     return response()->json([
       'message' => 'Your request is saved with success ! ',
@@ -78,35 +71,31 @@ class PharmacyControllerApi extends Controller
     ]);
   }
 
-  /**
-   * Display the specified resource.
-   */
-  public function show(Pharmacy $pharmacy)
-  {
-    //
-  }
 
-  /**
-   * Show the form for editing the specified resource.
-   */
-  public function edit(Pharmacy $pharmacy)
+  public function search(Request $request)
   {
-    //
-  }
 
-  /**
-   * Update the specified resource in storage.
-   */
-  public function update(Request $request, Pharmacy $pharmacy)
-  {
-    //
-  }
+    $longitude = $request->input("longitude");
+    $latitude = $request->input("latitude");
+    $pharmacy_name = $request->input("pharmacy_name");
 
-  /**
-   * Remove the specified resource from storage.
-   */
-  public function destroy(Pharmacy $pharmacy)
-  {
-    //
+    $pharmacies = Pharmacy::selectRaw("*,
+    ( 6371 * acos( cos( radians(?) ) *
+    cos( radians( latitude ) )
+    * cos( radians( longitude ) - radians(?)
+    ) + sin( radians(?) ) *
+    sin( radians( latitude ) ) )
+) AS distance", [$latitude, $longitude, $latitude])
+      ->when($pharmacy_name, function ($query) use ($pharmacy_name) {
+        return $query->where('name', 'LIKE', '%' . $pharmacy_name . '%');
+      })
+      ->orderBy('distance')
+      ->limit(30)
+      ->withCount("report")
+      ->get();
+      return response()->json([
+        "pharmacies" => $pharmacies,
+
+      ]);
   }
 }

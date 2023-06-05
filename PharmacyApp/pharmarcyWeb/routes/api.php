@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("pharmacies",[PharmacyControllerApi::class,"index"]);
 //Store User Report
 Route::post('store-user-report', [PharmacyControllerApi::class, 'store']);
+Route::post('search-pharmacy', [PharmacyControllerApi::class, 'search']);

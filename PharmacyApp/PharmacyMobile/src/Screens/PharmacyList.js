@@ -49,9 +49,7 @@ const PharmarcyList = (props) => {
     console.log(query);
   }
 
-  const handleOpenSettings = async () => {
-    await Location.openSettings();
-  };
+
   const url = 'http://192.168.8.124:8000/api/pharmacies?page=1';
 
 

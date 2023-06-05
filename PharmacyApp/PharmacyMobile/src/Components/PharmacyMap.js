@@ -1,4 +1,4 @@
-import { Button, Linking, StyleSheet, TouchableOpacity } from "react-native";
+import { Button, Linking, StyleSheet, TouchableOpacity,ImageBackground } from "react-native";
 import { Text, View } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { Marker } from 'react-native-maps';
@@ -24,6 +24,10 @@ const PharmacyMap = ({ route, }) => {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
+  const handleOpenMaps = () => {
+    const url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    Linking.openURL(url);
+  };
 
   const handleWhatsappMessage = () => {
     const url = `https://wa.me/${phone1}?text=${encodeURIComponent("Bonjour")}`;
@@ -35,20 +39,16 @@ const PharmacyMap = ({ route, }) => {
 
   return (
     <View style={styles.container}>
-
-      <MapView
-        provider={PROVIDER_GOOGLE} 
-        style={styles.map}
-        initialRegion={pharmacyRegion}
-      >
-        <Marker
-          coordinate={pharmacyRegion}
-          pinColor="green"
-          title={name}
-          description={description}
-          image={require("../../assets/pha-marker.png")}
+      <ImageBackground source={require("./../../assets/mapback.jpg")} style={styles.mapButtonBackground} >
+ 
+        <Button
+          title={i18n.t("open_in_google_maps") }
+          onPress={handleOpenMaps}
+          color="#03C988"
+          style={styles.mapButton}
         />
-      </MapView>
+      </ImageBackground>
+
 
       <View style={{ margin: 10 }}>
 
@@ -193,7 +193,26 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 2,
     paddingVertical: 4
-  }
+  },
+  mapButtonContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+
+  },
+  mapButton: {
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
+    backgroundColor: '#03C988',
+  },
+  mapButtonBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+  },
 
 })
 export default PharmacyMap;
