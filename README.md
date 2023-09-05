@@ -3,7 +3,7 @@
 
 
 
-![img|320x271](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/e49aa8e2-bdbc-4b6c-b6a4-0d3bab698337")
+![img|100x100](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/e49aa8e2-bdbc-4b6c-b6a4-0d3bab698337")
 
 ![WhatsApp Image 2023-09-05 at 6 13 43 PM](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/8ec8477f-12fb-4eb5-b8c9-73f295902d40)
 
