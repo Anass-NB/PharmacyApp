@@ -1,18 +1,25 @@
 # PharmacyFinder
 >PharmacyFinder is a mobile application designed to help users easily find nearby pharmacies and connect with them for essential medication needs. The app provides a user-friendly interface to locate pharmacies and offers the ability to check if a pharmacy provides shipping services. Additionally, users can conveniently initiate conversations with pharmacies through WhatsApp for further assistance..
 
-<img src='https://github.com/Anass-NB/PharmacyFinder/assets/110456240/9c34624e-1661-45f4-879f-e8d35aafdaed' height="30%" width="30%" />
 
 
-<img src='https://github.com/Anass-NB/PharmacyFinder/assets/110456240/a7621a37-4b63-4936-bbef-8aeac23150fd' height="30%" width="30%" />
+![WhatsApp Image 2023-09-05 at 6 13 43 PM (1)](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/e49aa8e2-bdbc-4b6c-b6a4-0d3bab698337)
+
+![WhatsApp Image 2023-09-05 at 6 13 43 PM](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/8ec8477f-12fb-4eb5-b8c9-73f295902d40)
+
+![WhatsApp Image 2023-09-05 at 6 13 42 PM (4)](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/efcbd974-5a68-4304-9aff-8e5d8efc3a81)
+
+![WhatsApp Image 2023-09-05 at 6 13 42 PM (3)](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/b7ff43cd-749a-4cbe-8865-030ed10ec141)
+
+![WhatsApp Image 2023-09-05 at 6 13 42 PM (1)](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/5eff1a14-73cf-4d29-8d8b-a7da04467e5a)
+
+![WhatsApp Image 2023-09-05 at 6 13 42 PM](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/8d538c89-ab51-4b89-8366-54b0b675dfda)
 
 
-<img src='https://github.com/Anass-NB/PharmacyFinder/assets/110456240/97a888f4-8a8b-4236-88ce-e001f918e080' height="30%" width="30%" />
+![WhatsApp Image 2023-09-05 at 6 13 42 PM](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/ae196eaf-c146-4cff-8599-9de12312448f)
 
 
-
-
-
+![WhatsApp Image 2023-09-05 at 6 13 41 PM](https://github.com/Anass-NB/PharmacyFinder/assets/110456240/056c200d-0ac8-40c1-8d55-b60f57cb242e)
 
 ## Installation
 
